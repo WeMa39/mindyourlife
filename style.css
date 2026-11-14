@@ -1,5 +1,5 @@
 /* ==========================================================
-   Mind Your Life — stijlpagina
+   Mind your Life — stijlpagina
    Kleuren, lettertypes en opmaak voor alle pagina's
    ========================================================== */
 
@@ -409,6 +409,7 @@ p { margin: 0 0 1.2em; }
   grid-template-columns: 1.4fr 1fr 1fr;
   gap: 40px;
 }
+.footer-brand span { color: var(--sage); font-style: italic; }
 .footer-brand {
   font-family: var(--serif);
   font-size: 1.7rem;
