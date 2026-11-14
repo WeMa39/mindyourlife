@@ -1,0 +1,794 @@
+/* ==========================================================
+   Mind Your Life — stijlpagina
+   Kleuren, lettertypes en opmaak voor alle pagina's
+   ========================================================== */
+
+:root {
+  --bg: #faf8f4;          /* warm gebroken wit */
+  --surface: #ffffff;
+  --sage: #7d9868;        /* saliegroen */
+  --sage-dark: #4e6744;
+  --sage-light: #e8eed9;  /* zacht groen van de oude footer */
+  --blush: #f7e8e2;       /* zacht roze van het oude menu */
+  --terracotta: #b8735a;
+  --ink: #2e362c;
+  --muted: #626d5f;
+  --line: #e4e1d8;
+
+  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans: "Jost", "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --wrap: 1120px;
+  --radius: 14px;
+  --shadow: 0 18px 40px -24px rgba(46, 54, 44, 0.35);
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 350;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--sage-dark); }
+a:hover { color: var(--terracotta); }
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 0 0 0.6em;
+}
+h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
+h2 { font-size: clamp(1.9rem, 3.6vw, 2.6rem); }
+h3 { font-size: 1.5rem; }
+
+p { margin: 0 0 1.2em; }
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 1rem;
+}
+
+/* ---------- Header & navigatie ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 248, 244, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 76px;
+}
+
+.logo {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1;
+}
+.logo span { color: var(--sage); font-style: italic; font-weight: 500; }
+.logo:hover { color: var(--ink); }
+
+.nav ul {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  display: block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.nav a:hover { background: var(--blush); color: var(--ink); }
+.nav a[aria-current="page"] { background: var(--sage-light); color: var(--sage-dark); font-weight: 500; }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  margin: 4px 0;
+}
+
+/* ---------- Algemene secties ---------- */
+
+.section { padding: 66px 0; }
+.section--tight { padding: 44px 0; }
+.section--tint { background: var(--sage-light); }
+.section--blush { background: var(--blush); }
+
+.page-intro {
+  padding: 64px 0 28px;
+  text-align: center;
+}
+.page-intro p {
+  max-width: 640px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
+}
+.split > * { min-width: 0; }
+.split--reverse { grid-template-columns: 0.9fr 1.1fr; }
+.split--reverse .split__media { order: -1; }
+
+.photo {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: var(--sage-dark);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn:hover { background: var(--ink); color: #fff; transform: translateY(-1px); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--sage-dark);
+  border: 1px solid var(--sage);
+}
+.btn--ghost:hover { background: var(--sage-light); color: var(--sage-dark); }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+
+/* ---------- Home ---------- */
+
+.hero { padding: 72px 0 96px; }
+.hero .split { grid-template-columns: 1fr 0.85fr; }
+
+.hero__title {
+  font-family: var(--serif);
+  font-size: clamp(3.6rem, 9vw, 7rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  margin: 0 0 28px;
+}
+.hero__title .outline {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--ink);
+}
+.hero__title .accent { display: block; color: var(--sage); font-style: italic; }
+
+.hero__tagline {
+  font-size: 1.1rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  margin-bottom: 32px;
+}
+.hero__tagline { display: flex; flex-wrap: wrap; column-gap: 12px; }
+.hero__tagline span { color: var(--sage); }
+
+.hero .photo { aspect-ratio: 4 / 5.6; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover { transform: translateY(-3px); box-shadow: var(--shadow); color: var(--ink); }
+.card h3 { margin-bottom: 0.4em; }
+.card p { color: var(--muted); font-size: 0.97rem; margin: 0 0 1em; }
+.card .more { font-size: 0.9rem; font-weight: 500; color: var(--sage-dark); }
+
+.cta {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.cta p { color: var(--muted); }
+
+/* ---------- Voor wie ---------- */
+
+.quotes {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+.quotes li {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+.prose {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.08rem;
+}
+
+/* ---------- Werkwijze ---------- */
+
+.motto {
+  background: var(--sage-dark);
+  color: #fff;
+  text-align: center;
+  padding: 56px 24px;
+}
+.motto p {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  font-style: italic;
+  margin: 0;
+}
+.motto p::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.6);
+  margin: 22px auto 0;
+}
+
+.word {
+  font-family: var(--sans);
+  font-size: clamp(4.5rem, 12vw, 9rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, #2f4a2a 0%, #5f8550 45%, #9cb784 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+}
+
+.themes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+.themes li {
+  background: var(--blush);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 0.92rem;
+}
+
+/* ---------- Over mij ---------- */
+
+.about .photo { aspect-ratio: 3 / 4.6; }
+
+/* ---------- Contact ---------- */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.contact-item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+}
+.contact-item .icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--sage-light);
+  display: grid;
+  place-items: center;
+}
+.contact-item .icon svg { width: 22px; height: 22px; stroke: var(--sage-dark); }
+.contact-item h3 { font-size: 1.3rem; margin-bottom: 0.3em; }
+.contact-item p { margin: 0; color: var(--muted); }
+.contact-item a { text-decoration: none; font-weight: 500; overflow-wrap: anywhere; }
+
+/* ---------- Blog ---------- */
+
+.posts { display: grid; gap: 28px; max-width: 920px; margin: 0 auto; }
+
+.post {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.post__img { aspect-ratio: 4 / 3; }
+.post__img img { width: 100%; height: 100%; object-fit: cover; }
+.post__body { padding: 32px 36px; display: flex; flex-direction: column; justify-content: center; }
+.post__meta { font-size: 0.85rem; color: var(--muted); letter-spacing: 0.04em; margin-bottom: 10px; }
+.post__body h2 { font-size: 1.9rem; margin-bottom: 0.35em; }
+.post__body p { color: var(--muted); margin: 0; }
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--ink);
+  color: #dfe3da;
+  padding: 56px 0 28px;
+  font-size: 0.95rem;
+}
+.site-footer a { color: #dfe3da; text-decoration: none; }
+.site-footer a:hover { color: #fff; }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 40px;
+}
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 1.7rem;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.footer-tag { font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: #b9c7a9; }
+.site-footer h4 {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #b9c7a9;
+  margin: 0 0 12px;
+}
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer li { margin-bottom: 4px; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin-top: 40px;
+  padding-top: 20px;
+  font-size: 0.85rem;
+  color: #9aa597;
+}
+
+/* ---------- Responsief ---------- */
+
+@media (max-width: 900px) {
+  .split,
+  .split--reverse,
+  .hero .split { grid-template-columns: 1fr; gap: 40px; }
+  .split--reverse .split__media { order: 0; }
+  .cards,
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid > :first-child { grid-column: 1 / -1; }
+  .post { grid-template-columns: 1fr; }
+  .section { padding: 64px 0; }
+  .hero .photo { max-width: 460px; }
+  .about .photo { max-width: 420px; }
+}
+
+@media (max-width: 760px) {
+  .nav-toggle { display: block; }
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    display: none;
+  }
+  .nav.is-open { display: block; }
+  .nav ul { flex-direction: column; padding: 12px 16px 20px; gap: 2px; }
+  .nav a { padding: 12px 16px; border-radius: 10px; }
+}
+
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .wrap { padding: 0 16px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .quotes li { font-size: 1.15rem; border-radius: 18px; }
+  .post__body { padding: 24px; }
+}
+
+
+.blog-kaartje {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 0 auto 2rem;
+  max-width: 46rem;
+  box-shadow: 0 2px 12px rgba(46, 54, 44, 0.06);
+}
+
+.blog-kaartje h2 {
+  font-family: "Cormorant Garamond", serif;
+  margin: 0 0 0.25rem;
+}
+
+.blog-datum {
+  color: #7D9868;
+  font-size: 0.9rem;
+  margin-top: 0;
+}
+
+.blog-knop {
+  background: #4E6744;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.blog-knop:hover {
+  background: #2E362C;
+}
+
+.blog-kaartje.met-foto {
+  display: grid;
+  grid-template-columns: 2fr 3fr;   /* foto 2 delen breed, tekst 3 delen */
+  gap: 2rem;
+  max-width: 64rem;
+  align-items: start;
+}
+
+.blog-foto {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.blog-inhoud > :first-child {
+  margin-top: 0;
+}
+
+/* Op een gsm is er geen plaats voor twee kolommen: foto boven, tekst eronder */
+@media (max-width: 700px) {
+ 
+.blog-kaartje.met-foto {
+  grid-template-columns: 1fr;
+}
+  
+.blog-foto {
+  aspect-ratio: 16 / 9;
+}
+}
+
+/* ---------- Homepage: belofte ---------- */
+
+.hero__title { margin-bottom: 24px; }
+.hero__promise {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0 0 16px;
+}
+.hero__intro {
+  font-size: 1.08rem;
+  color: var(--muted);
+  max-width: 34em;
+  margin: 0 0 22px;
+}
+.theme-links { text-align: center; margin: 32px 0 0; color: var(--muted); font-size: 0.97rem; }
+.theme-links span { color: var(--sage); margin: 0 6px; }
+
+/* ---------- Instagram ---------- */
+
+.ig-link { display: inline-flex; align-items: center; gap: 8px; }
+.ig-cta { text-align: center; margin-top: 28px; }
+
+/* ---------- Themapagina's ---------- */
+
+.thema { max-width: 760px; margin: 0 auto; padding: 40px 24px 96px; }
+.crumbs { font-size: 0.85rem; color: var(--muted); margin-bottom: 28px; }
+.crumbs a { color: var(--muted); }
+.crumbs span { margin: 0 8px; }
+.thema h1 { margin-bottom: 0.5em; }
+.thema h2 { font-size: clamp(1.6rem, 3vw, 2rem); margin: 1.8em 0 0.5em; }
+.kort { background: var(--sage-light); border-radius: var(--radius); padding: 24px 28px; font-size: 1.12rem; }
+.kort .eyebrow { margin-bottom: 0.4rem; }
+.kort p { margin: 0; }
+.thema ul.lijst { padding-left: 1.2em; }
+.thema ul.lijst li { margin-bottom: 0.35em; }
+.vgl { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 0.5em 0 1.2em; }
+.vak { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; }
+.vak h3 { font-family: var(--sans); font-size: 1.05rem; font-weight: 500; margin: 0 0 0.3em; }
+.vak p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+.vak .nr { font-size: 0.8rem; font-weight: 500; color: var(--sage); }
+.pijlers { grid-template-columns: 1fr 1fr; }
+.stappen { list-style: none; padding: 0; counter-reset: stap; }
+.stappen li { counter-increment: stap; display: flex; gap: 14px; align-items: center; margin-bottom: 12px; }
+.stappen li::before { content: counter(stap); flex: 0 0 32px; height: 32px; border-radius: 50%; background: var(--sage-light); color: var(--sage-dark); display: grid; place-items: center; font-weight: 500; font-size: 0.9rem; }
+.klein { font-size: 0.92rem; color: var(--muted); }
+.audio { display: flex; gap: 20px; align-items: center; background: var(--sage-dark); color: #fff; border-radius: var(--radius); padding: 22px 26px; margin-top: 24px; }
+.audio__knop { flex: 0 0 60px; height: 60px; border-radius: 50%; background: #fff; display: grid; place-items: center; opacity: 0.85; }
+.audio__knop svg { width: 20px; height: 20px; fill: var(--sage-dark); margin-left: 3px; }
+.audio__titel { font-family: var(--serif); font-size: 1.5rem; line-height: 1.1; }
+.audio__sub { font-size: 0.88rem; color: #dfe3da; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0.6em 0 0; }
+.tags li { background: var(--blush); border-radius: 999px; padding: 4px 14px; font-size: 0.92rem; }
+.bloglink { display: flex; justify-content: space-between; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 22px; margin-top: 28px; text-decoration: none; color: var(--ink); }
+.bloglink small { display: block; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); }
+.bloglink strong { font-family: var(--serif); font-size: 1.35rem; font-weight: 500; }
+.auteur { display: flex; gap: 14px; align-items: center; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 18px 0; margin-top: 40px; }
+.auteur__k { flex: 0 0 48px; height: 48px; border-radius: 50%; background: var(--sage-light); color: var(--sage-dark); display: grid; place-items: center; font-family: var(--serif); font-size: 1.4rem; }
+.auteur b { font-weight: 500; display: block; }
+.auteur span { font-size: 0.88rem; color: var(--muted); }
+.hulp { background: var(--sage-light); color: var(--ink); border: 1px solid #d3dcc4; border-left: 5px solid var(--sage); border-radius: var(--radius); padding: 32px; margin-top: 32px; }
+.hulp h2 { color: var(--sage-dark); margin: 0 0 0.4em; }
+.hulp p { color: var(--ink); }
+.hulp .btn--ghost { background: #fff; }
+.lees-ook { margin-top: 36px; }
+.lees-ook .vgl a { text-decoration: none; color: var(--ink); font-family: var(--serif); font-size: 1.3rem; transition: transform 0.2s, box-shadow 0.2s; }
+.lees-ook .vgl a:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+@media (max-width: 600px) {
+  .vgl, .pijlers { grid-template-columns: 1fr; }
+  .audio { padding: 18px; }
+  .hulp { padding: 24px; }
+}
+
+/* ---------- Homepage: titel in de stijl van het logo ---------- */
+
+.hero__title {
+  position: relative;
+  font-size: clamp(2.6rem, 5.6vw, 4.4rem);
+  width: 6.4em;
+  max-width: 100%;
+  height: 3em;
+  margin: 0 0 28px clamp(8px, 2.5vw, 36px);
+  line-height: 1;
+}
+.hero__title span { position: absolute; display: block; white-space: nowrap; }
+.t-mind {
+  left: 0;
+  top: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: transparent;
+  -webkit-text-stroke: 1.4px var(--ink);
+}
+.t-your {
+  left: 6.4em;
+  top: 2.55em;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 0.42em;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.t-life {
+  left: 1.77em;
+  top: 0.36em;
+  font-family: "Pinyon Script", var(--serif);
+  font-weight: 400;
+  font-size: 1.95em;
+  color: var(--ink);
+}
+
+/* Over mij: tussenkoppen en citaat */
+.about__kop { font-size: clamp(1.5rem, 2.6vw, 1.9rem); margin: 1.4em 0 0.4em; }
+.about__quote { margin: 1.6em 0 1.6em; padding-left: 18px; border-left: 3px solid var(--sage); font-family: var(--serif); font-style: italic; font-size: 1.5rem; color: var(--sage-dark); }
+
+/* Werkwijze: traject en venster */
+.traject { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 24px; }
+.traject .nr { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--sage-light); color: var(--sage-dark); font-size: 0.95rem; margin-bottom: 10px; }
+.traject__noot, .venster__intro { max-width: 760px; color: var(--muted); margin-top: 22px; }
+.venster { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 20px; }
+.vak--rust { border: 2px solid var(--sage); }
+.vak--rust h3 { color: var(--sage-dark); }
+@media (max-width: 900px) { .traject { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .traject, .venster { grid-template-columns: 1fr; } }
+
+/* Werkwijze: illustratie venster */
+.venster-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.venster-grid .venster { grid-template-columns: 1fr; gap: 12px; }
+.venster__fig { margin: 0; }
+.venster__svg { width: 100%; height: auto; display: block; }
+.venster__fig figcaption { margin-top: 12px; font-size: 0.92rem; color: var(--muted); text-align: center; font-style: italic; }
+.vs-kop { font-family: "Jost", sans-serif; font-size: 18px; font-weight: 500; fill: #2e362c; }
+.vs-kop--rust { fill: #4e6744; }
+.vs-sub { font-family: "Jost", sans-serif; font-size: 15px; font-weight: 300; fill: #626d5f; }
+@media (max-width: 900px) { .venster-grid { grid-template-columns: 1fr; gap: 28px; } .venster__fig { max-width: 520px; } }
+
+/* Homepagina: titel krijgt de ruimte, plaats onder de titel */
+.hero__title { margin-top: 12px; margin-bottom: 36px; }
+.hero__plaats { display: block; margin-bottom: 10px; }
+
+/* Homepagina: titel als logo-afbeelding */
+.hero__title--img { width: auto; height: auto; margin-left: 0; }
+.hero__title--img img { display: block; width: 100%; max-width: 520px; height: auto; }
+@media (max-width: 600px) { .hero__title--img img { max-width: 100%; } }
+
+/* Homepagina: aanbod als labels, adres onder de knoppen */
+.hero__tags { list-style: none; padding: 0; margin: 4px 0 30px; display: flex; flex-wrap: wrap; gap: 8px; }
+.hero__tags li { background: var(--sage-light); color: var(--sage-dark); font-weight: 500; font-size: 0.95rem; letter-spacing: 0.01em; padding: 7px 15px; border-radius: 999px; }
+.hero__adres { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 24px; font-size: 1.08rem; font-weight: 500; color: var(--ink); letter-spacing: 0.01em; }
+.hero__adres svg { color: var(--sage); flex: none; }
+
+/* Over mij: foto bovenaan naast de tekst */
+.about .split { align-items: start; }
+.about .split__media { position: sticky; top: 110px; }
+.page-intro + .about { padding-top: 24px; }
+@media (max-width: 900px) { .about .split__media { position: static; } }
+.about__quote--foto { margin: 28px 0 0; }
+.about .btn-row { margin-top: 32px; }
+
+/* Homepagina: knoppen gecentreerd onder de vier labels */
+.hero__acties { width: fit-content; max-width: 100%; }
+.hero__acties .btn-row { justify-content: center; }
+/* Voor wie: knoppen gecentreerd */
+.btn-row--midden { justify-content: center; }
+/* Footer: ondernemingsnummer */
+.footer-sep { margin: 0 6px; }
+
+/* Contact: warme slotzin in de intro */
+.page-intro p + p { margin-top: 0.6em; }
+.page-intro .contact-warm { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.5rem; color: var(--sage-dark); margin-top: 0.8em; }
+
+/* ---------- Blogartikels (eigen pagina per blog) ---------- */
+.blogartikel .artikel__meta { font-size: 0.9rem; color: var(--muted); letter-spacing: 0.04em; margin: -0.2em 0 24px; }
+.artikel__img { width: 100%; border-radius: var(--radius); margin: 0 0 32px; aspect-ratio: 16 / 9; object-fit: cover; }
+.artikel__tekst h2 { font-size: clamp(1.6rem, 3vw, 2rem); margin: 1.6em 0 0.5em; }
+.artikel__tip { margin: 32px 0; }
+.artikel__tip p { margin: 0.3em 0 0; }
+.artikel__tekst blockquote { font-family: var(--serif); font-style: italic; font-size: 1.5rem; line-height: 1.4; color: var(--sage-dark); border-left: 3px solid var(--sage); margin: 36px 0; padding: 4px 0 4px 24px; }
+.artikel__terug { margin-top: 32px; }
+.artikel__terug a { text-decoration: none; font-weight: 500; }
+a.post { text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s; }
+a.post:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.post__lees { margin-top: 16px; font-weight: 500; color: var(--sage-dark); }
+
+/* ==========================================================
+   Neutrale kleur: warm zand (op vraag van Katleen: minder groen)
+   ========================================================== */
+:root {
+  --sand: #cdbca3;        /* warm zand */
+  --sand-light: #f3eee6;  /* heel licht zand */
+  --sand-dark: #7a6a56;   /* donker zand voor tekst */
+  --ink-warm: #3a3632;    /* warm donkergrijs voor de footer */
+}
+.section--tint { background: var(--sand-light); }
+.hero__tags li { background: var(--sand-light); color: var(--sand-dark); border: 1px solid #e6dccd; }
+.nav a[aria-current="page"] { background: var(--sand-light); color: var(--sand-dark); }
+.kort { background: var(--sand-light); }
+.kort .eyebrow { color: var(--sand-dark); }
+.contact-item .icon { background: var(--sand-light); }
+.contact-item .icon svg { stroke: var(--sand-dark); }
+.site-footer { background: var(--ink-warm); }
+.btn--ghost:hover { background: var(--sand-light); }
+
+/* Praktische info: duur, op afspraak, terugbetaling */
+.praktisch__kop { text-align: center; font-family: var(--serif); font-size: 1.6rem; font-weight: 500; margin: 48px 0 18px; }
+.praktisch { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 980px; margin: 0 auto; }
+.praktisch__item { display: flex; gap: 14px; align-items: flex-start; background: var(--surface); border: 1px solid #e6dccd; border-radius: var(--radius); padding: 18px 20px; }
+.praktisch__ico { flex: 0 0 42px; height: 42px; border-radius: 50%; background: var(--sand-light); color: var(--sand-dark); display: grid; place-items: center; }
+.praktisch__ico svg { width: 20px; height: 20px; }
+.praktisch__item b { display: block; font-weight: 500; line-height: 1.35; }
+.praktisch__item div span { font-size: 0.92rem; color: var(--muted); line-height: 1.5; display: block; margin-top: 2px; }
+@media (max-width: 800px) { .praktisch { grid-template-columns: 1fr; } }
+.motto { background: var(--sand-light); color: var(--sand-dark); border-top: 1px solid #e6dccd; border-bottom: 1px solid #e6dccd; }
+.motto p::after { background: var(--sand); }
+
+/* Homepage: krachtige uitspraak boven de uitnodiging */
+.cta__quote { font-family: var(--serif); font-style: italic; font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.25; color: var(--sage-dark); margin: 0 auto 40px; max-width: 760px; }
+.cta__quote::after { content: ""; display: block; width: 64px; height: 1px; background: var(--sand); margin: 28px auto 0; }
+
+/* Werkwijze: foto van de praktijk naast "Hoe gaat dat in de praktijk?" */
+.praktijk-kop { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: center; margin-bottom: 36px; }
+.praktijk-kop p { color: var(--muted); max-width: 560px; }
+.praktijk-kop__img { width: 100%; max-width: 400px; justify-self: end; aspect-ratio: 4 / 3.6; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); }
+@media (max-width: 800px) { .praktijk-kop { grid-template-columns: 1fr; gap: 24px; } .praktijk-kop__img { justify-self: start; max-width: 100%; } }
+
+/* Ademhalingsoefening: echt audiofragment */
+.audio { flex-wrap: wrap; }
+.audio__tekst { flex: 1 1 220px; }
+.audio__speler { flex: 1 1 260px; width: 100%; max-width: 100%; height: 44px; }
+
+/* Psychomotorische therapie: foto behandeltafel */
+.thema-split { display: grid; grid-template-columns: 1.25fr 1fr; gap: 36px; align-items: stretch; margin: 40px 0 8px; }
+.thema-split > div > :first-child { margin-top: 0; }
+.thema-split > div > :last-child { margin-bottom: 0; }
+.thema-foto { display: block; width: 100%; height: 100%; min-height: 0; object-fit: cover; object-position: center 30%; border-radius: var(--radius); }
+@media (max-width: 760px) { .thema-split { grid-template-columns: 1fr; gap: 20px; } .thema-foto { aspect-ratio: 4 / 3; object-position: center 22%; } }
+
+/* Werkwijze: groot venster met kernwoorden */
+.venster__fig--groot { margin: 26px 0 0; max-width: none; }
+.venster__svg--smal { display: none; }
+.venster__svg--breed .vs-kop { font-size: 20px; }
+.venster__svg--breed .vs-sub { font-size: 16px; }
+.venster__svg--smal .vs-kop { font-size: 17px; }
+.venster__svg--smal .vs-sub { font-size: 14px; }
+.vs-w { font-family: "Jost", sans-serif; }
+@media (max-width: 640px) { .venster__svg--breed { display: none; } .venster__svg--smal { display: block; } }
