@@ -789,7 +789,7 @@ a.post:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
 .venster__svg--smal { display: none; }
 .venster__svg--breed .vs-kop { font-size: 20px; }
 .venster__svg--breed .vs-sub { font-size: 16px; }
-.venster__svg--smal .vs-kop { font-size: 17px; }
-.venster__svg--smal .vs-sub { font-size: 14px; }
+.venster__svg--smal .vs-kop { font-size: 22px; font-weight: 600; }
+.venster__svg--smal .vs-sub { font-size: 17px; font-weight: 400; fill: #4a5448; }
 .vs-w { font-family: "Jost", sans-serif; }
 @media (max-width: 640px) { .venster__svg--breed { display: none; } .venster__svg--smal { display: block; } }
